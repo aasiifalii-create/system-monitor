@@ -326,7 +326,9 @@ class MonitorClient:
                 f"{base_url}/api/metrics/ingest",
                 json=metrics,
                 headers=headers,
-                timeout=10
+                timeout=10,
+                verify=False  # Skip SSL verification for Render
+
             )
             
             if response.status_code == 200:
@@ -429,3 +431,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
